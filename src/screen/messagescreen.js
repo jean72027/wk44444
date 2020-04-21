@@ -37,32 +37,7 @@ const MessageScreen = ({navigation}) => {
                   <Image source={{url: headerData.Friends2.camera}} style={styles.camera}/>
                </View>
 
-               <View  style={styles.headermidStyle}>
-               <Image source={{url: headerData.Friends3.thumbnail_image}} style={styles.chatpicture}/>      
-                  <View style={styles.talkbox}>
-                  <Text style={styles.midfontstyle}>{headerData.Friends3.name}</Text>
-                  <Text style={styles.talk}>{headerData.Friends3.chat}</Text>
-                  </View>
-                  <Image source={{url: headerData.Friends3.camera}} style={styles.camera}/>
-               </View>
-
-               <View  style={styles.headermidStyle}>
-               <Image source={{url: headerData.Friends4.thumbnail_image}} style={styles.chatpicture}/>      
-                  <View style={styles.talkbox}>
-                  <Text style={styles.midfontstyle}>{headerData.Friends4.name}</Text>
-                  <Text style={styles.talk}>{headerData.Friends4.chat}</Text>
-                  </View>
-                  <Image source={{url: headerData.Friends4.camera}} style={styles.camera}/>
-               </View>
-
-               <View  style={styles.headermidStyle}>
-               <Image source={{url: headerData.Friends5.thumbnail_image}} style={styles.chatpicture}/>      
-                  <View style={styles.talkbox}>
-                  <Text style={styles.midfontstyle}>{headerData.Friends5.name}</Text>
-                  <Text style={styles.talk}>{headerData.Friends5.chat}</Text>
-                  </View>
-                  <Image source={{url: headerData.Friends5.camera}} style={styles.camera}/>
-               </View>
+               
                </ScrollView>
                
            </View>

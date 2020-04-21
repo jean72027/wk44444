@@ -15,13 +15,13 @@ const AlbumDetail = ({ album, navigation }) => {
             <Image source={{uri: album.image}}/>
         </View>
         <View style={styles.likebar}>
-            <Image source={{url:"https://github.com/jean72027/wk4-HW/blob/master/img/icon/Icon%20feather-heart.png"}} 
+            <Image source={{url:"https://raw.githubusercontent.com/jean72027/wk4-HW/master/img/icon/Icon%20feather-heart.png"}} 
             style={{width:20,height:17.5,marginLeft:13}}/>
-            <Image source={{url:"https://github.com/jean72027/wk4-HW/blob/master/img/icon/Icon%20feather-message-circle.png"}} 
+            <Image source={{url:"https://raw.githubusercontent.com/jean72027/wk4-HW/master/img/icon/Icon%20feather-message-circle.png"}} 
             style={{width:18,height:18,marginLeft:16}}/>
             <Image source={{url:"https://cdn0.iconfinder.com/data/icons/instagram-32/512/Chat_Message_DM-512.png"}} 
             style={{width:20,height:20,marginLeft:16}}/>
-            <Image source={{url:"https://github.com/jean72027/wk4-HW/blob/master/img/icon/Icon%20material-bookmark-border.png"}} 
+            <Image source={{url:"https://raw.githubusercontent.com/jean72027/wk4-HW/master/img/icon/Icon%20material-bookmark-border.png"}} 
             style={{width:18,height:20.4,marginLeft:224}}/>
         </View>
         <View style={styles.post}>

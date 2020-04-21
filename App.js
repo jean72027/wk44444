@@ -9,32 +9,9 @@ const Stack = createStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-        }}>
-        <Stack.Screen
-          name=" "
-          component={HomeScreen}
-          options={{
-            headerStyle: {
-              height: 0,
-            },
-          }} />
-
-        <Stack.Screen name="DetailScreen" component={DetailScreen}
-          options={{
-            title: " ",
-            headerStyle: {
-              height: 0,
-              backgroundColor: '#fafafa',
-            },
-            headerLeft: null
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+ <View >
+   <DetailScreen/>
+ </View>
   );
 }
 

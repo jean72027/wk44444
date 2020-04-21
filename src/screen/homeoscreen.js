@@ -7,9 +7,9 @@ import headerData from "../json/chat.json";
 
 const HomeScreen = ({ navigation }) => {
     return (
-  <View style={{flex:1,backgroundColor:"#FFFFFF"}}>
+  <View style={{flex:1,backgroundColor:"#FFFFFF",height:600}}>
               <View style={styles.headerbar}>
-              <Image source={{url: headerData.HomePage.HeaderLeftUrl}} style={styles.headerLeft}/>
+              <Image source={require=("../icon/new.png")} style={styles.headerLeft}/>
               <Image source={{url: headerData.HomePage.HeaderMid}} style={styles.headermid}/>
                   <TouchableOpacity
                       onPress={() => navigation.push('messagecreen')}>
@@ -38,6 +38,7 @@ const HomeScreen = ({ navigation }) => {
             justifyContent:"space-between",
             width:360,
             height:40,
+            top:500,
             backgroundColor:'#EEEEEE',
             // marginTop:30,
             // elevation:4
