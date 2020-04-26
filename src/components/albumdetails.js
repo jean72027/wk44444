@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, FlatList,StyleSheet,Image,TouchableOpacity, Linking ,Text} from "react-native"
-
+import Swiper from 'react-native-swiper'
 
 
 const AlbumDetail = ({ album, navigation }) => {
     return (
- 
     
         <View style={styles.card}>
             
@@ -20,21 +19,23 @@ const AlbumDetail = ({ album, navigation }) => {
                 </View>
          
         </View>
-
     )
 
 };
 const styles = StyleSheet.create({
+
+   
     card:{
         width:356,
         height:217,
         flexDirection:"row",
         justifyContent:"space-between",
         paddingTop:12,
-        paddingBottom:12,
+        //paddingBottom:12,
         paddingLeft:22,
         backgroundColor:"#F3EFEB",
         marginLeft:29,
+        borderRadius:13,
     },
 
     cardpic:{
