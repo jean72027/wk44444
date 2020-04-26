@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Text,View,Image,Dimensions,ImageBackground,StyleSheet,ScrollView} from 'react-native'
+import {Text,View,Image,Dimensions,ImageBackground, FlatList,StyleSheet,ScrollView} from 'react-native'
 import Swiper from 'react-native-swiper'
 const { width } = Dimensions.get('window')
 const image = { uri: "https://raw.githubusercontent.com/jean72027/wk44444/master/src/screen/icon/knowHEAD.png" };
@@ -9,7 +9,7 @@ import AlbumDetail from "../components/albumdetails";
 
 
 //export default class SwiperDemo2 extends Component 
-const knowledgepage = ({ navigation }) => {
+const knowledgepage = ({ album,navigation }) => {
  //   render () {
         return (
           <ScrollView style={{backgroundColor:"#F2E6D8"}}>
@@ -37,16 +37,18 @@ const knowledgepage = ({ navigation }) => {
             </View>
 
           </ImageBackground>
-
+            <Text style={styles.cardtitle}>九柱神</Text>
             <View style={styles.swipcontainer}>
                 <Swiper style={styles.wrapper} height={200} horizontal={true} autoplay={ false }>
-                  <FlatList 
-                    data={albumData.Ennead} 
-                    renderItem={({item}) => <AlbumDetail album={item} navigation={navigation} 
-                    keyExtractor={item=>item.title} />}
-                  />
+                  <View resizeMode='stretch'>
+                    <FlatList 
+                      
+                      data={albumData.Ennead} 
+                      renderItem={({item}) => <AlbumDetail album={item} navigation={navigation} 
+                      keyExtractor={item=>item.title} />}
+                    />
+                  </View>
                 </Swiper>
-                
             </View>
             <View style={styles.swipcontainer}>
                 <Swiper style={styles.wrapper} height={200} horizontal={true} autoplay={ false }>
@@ -137,6 +139,10 @@ const styles = StyleSheet.create({
     paddingBottom:3,
     paddingRight:10,
     borderRadius:8,
+  },
+
+  cardtitle:{
+    fontSize:18,
   },
 
   swipcontainer: {
