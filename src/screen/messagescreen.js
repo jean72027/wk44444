@@ -1,134 +1,190 @@
-import React from 'react';
-import { StyleSheet,View, TouchableOpacity,Image,ScrollView,Text} from 'react-native';
-import headerData from "../json/chat.json";
+import React, { Component } from 'react'
+import {Text,View,Image,Dimensions,ImageBackground,StyleSheet,ScrollView} from 'react-native'
+import Swiper from 'react-native-swiper'
+const { width } = Dimensions.get('window')
+const image = { uri: "https://raw.githubusercontent.com/jean72027/wk44444/master/src/screen/icon/knowHEAD.png" };
 
-const MessageScreen = ({navigation}) => {
-  return(
-        
-    <View style={{flex:1,backgroundColor:"#FFFFFF"}}>
+import albumData from "../json/post.json";
+import AlbumDetail from "../components/albumdetails";
 
-               <View style={styles.headerbar}>
-                   <TouchableOpacity
-                       onPress={() => navigation.goBack()}>
-                       <Image source={{uri: headerData.MessagePage.HeaderLeftUrl}}
-                               style={styles.headerLeft}/>
-                   </TouchableOpacity>
-                   <Text style={styles.usernametext}>jean0422</Text>
-                   <Image source={{uri: headerData.MessagePage.bottomImage}} style={styles.headerMid}/>         
-                   <Image source={{uri: headerData.MessagePage.HeaderRightUrl}} style={styles.headerRight}/>      
-               </View>
 
-               <ScrollView>
-               <View  style={styles.headermidStyle}>
-               <Image source={{url: headerData.Friends.thumbnail_image}} style={styles.chatpicture}/>      
-                  <View style={styles.talkbox}>
-                  <Text style={styles.midfontstyle}>{headerData.Friends.name}</Text>
-                  <Text style={styles.talk}>{headerData.Friends.chat}</Text>
-                  </View>
-                  <Image source={{url: headerData.Friends.camera}} style={styles.camera}/>
-               </View>
+//export default class SwiperDemo2 extends Component 
+const knowledgepage = ({ navigation }) => {
+ //   render () {
+        return (
+          <ScrollView style={{backgroundColor:"#F2E6D8"}}>
 
-               <View  style={styles.headermidStyle}>
-               <Image source={{url: headerData.Friends2.thumbnail_image}} style={styles.chatpicture}/>      
-                  <View style={styles.talkbox}>
-                  <Text style={styles.midfontstyle}>{headerData.Friends2.name}</Text>
-                  <Text style={styles.talk}>{headerData.Friends2.chat}</Text>
-                  </View>
-                  <Image source={{url: headerData.Friends2.camera}} style={styles.camera}/>
-               </View>
+          <ImageBackground source={image} style={styles.headerimage}>
+            <View style={styles.headertext}>
+              <Text style={styles.headertitle}>古埃及百科</Text>
+              <Text style={styles.headertitle2}>KNOWLEDGE </Text>
+              <Text style={styles.headertitle2}>ABOUT</Text>
+              <Text style={styles.headertitle2}>ANCIENT EYGEPT</Text>
+            </View>
+            <View style={styles.headerbuttom}>
+              <View  style={styles.buttom}>
+                <Image style={styles.buttompic} source={require('./icon/ennead.png')}/>
+                <Text style={styles.buttomtext}>九柱神</Text>
+              </View>
+              <View  style={styles.buttom}>
+                <Image style={styles.buttompic2} source={require('./icon/jar.png')}/>
+                <Text style={styles.buttomtext}>卡諾皮克罐</Text>
+              </View>
+              <View  style={styles.buttom}>
+                <Image style={styles.buttompic3} source={require('./icon/mummy.png')}/>
+                <Text style={styles.buttomtext}>木乃伊製作</Text>
+              </View>
+            </View>
 
-               
-               </ScrollView>
-               
-           </View>
-           
-          
-       );
-   };
-   const styles = StyleSheet.create({
-       headerRight:{
-           marginTop:10,
-           width: 20,
-           height: 14,
-           marginRight:11,
-         },
-         headerMid:{
-          marginTop:10,
-          width: 35,
-          height: 35,
-          marginLeft:25,
-         },
-         usernametext:{
-           marginTop:10,
-           marginLeft:85,
-           fontSize:20,
-           fontWeight:"700"
-         },
-         headerLeft:{
-           marginTop:20,
-           marginRight: 0,
-           marginLeft:15,
-           width: 40,
-           height: 40
-         },
-         headerbar:{
-          justifyContent:"center",
-          alignItems:"center",
-          flexDirection:"row",
-          justifyContent:"flex-start",
-          justifyContent:"space-between",
-           width:null,
-           height:70,
-           backgroundColor:'#fafafa',
-           marginTop:25,
-           elevation:4
-       },
-       headermidStyle:{
-        justifyContent:"center",
-        alignItems:"center",
-        flexDirection:"row",
-        justifyContent:"flex-start",
-        justifyContent:"space-between",
-        height:90,
-        width:null,
-       },
-       chatpicture:{
-         height:60,
-         width:60,
-         borderRadius:100,
-         marginLeft:15
-       },
-       midfontstyle:{
-        fontSize:18,
-        marginLeft:-160
-       },
-       talkbox:{
-        justifyContent:"center",
-        alignItems:"center",
-        justifyContent:"flex-start",
-       },
-       camera:{
-         width:32,
-         height:32,
-         marginRight:15
-       },
-       talk:{
-        fontSize:17,
-        color:"#888888",
-        marginLeft:-160
-       },
-       bottom:{
-           width: 360,
-           height: 45,
-         },
-       mesList:{
-           marginTop:20,
-           width:340,
-           height:550,
-           marginLeft:10,
-           marginRight:10,
-           
-       },
-   });
+          </ImageBackground>
 
-export default MessageScreen;
+            <View style={styles.swipcontainer}>
+                <Swiper style={styles.wrapper} height={200} horizontal={true} autoplay={ false }>
+                  <FlatList 
+                    data={albumData.Ennead} 
+                    renderItem={({item}) => <AlbumDetail album={item} navigation={navigation} 
+                    keyExtractor={item=>item.title} />}
+                  />
+                </Swiper>
+                
+            </View>
+            <View style={styles.swipcontainer}>
+                <Swiper style={styles.wrapper} height={200} horizontal={true} autoplay={ false }>
+                    <View style={styles.slide1}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('./icon/c1.png')} />
+                    </View>
+                    <View style={styles.slide2}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('./icon/c2.png')} />
+                    </View>
+                    <View style={styles.slide3}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('./icon/c3.png')} />
+                    </View>
+                </Swiper>
+                
+            </View>
+            <View style={styles.swipcontainer}>
+                <Swiper style={styles.wrapper} height={200} horizontal={true} autoplay={ false }>
+                    <View style={styles.slide1}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('./icon/c1.png')} />
+                    </View>
+                    <View style={styles.slide2}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('./icon/c2.png')} />
+                    </View>
+                    <View style={styles.slide3}>
+                        <Image resizeMode='stretch' style={styles.image} source={require('./icon/c3.png')} />
+                    </View>
+                </Swiper>
+                
+            </View>
+
+</ScrollView>
+
+        )
+};
+
+const styles = StyleSheet.create({
+  
+  headerimage: {
+    width,
+    height:259,
+  },
+  headertext:{
+    marginTop:26,
+    marginLeft:33,
+  },
+
+  headertitle:{
+    fontSize:25,
+    color:'#4E5C69',
+  },
+
+  headertitle2:{
+    fontSize:20,
+    color:'#4E5C69',
+  },
+  headerbuttom:{
+    flexDirection:'row',
+    justifyContent:'space-around',
+    marginTop:33,
+  },
+
+  buttom:{
+    flexDirection:'column',
+    alignItems:'center',
+    justifyContent:'center',
+  },
+
+  buttompic:{
+    width:47,
+    height:47,
+  },
+  buttompic2:{
+    width:50,
+    height:47,
+  },
+  buttompic3:{
+    width:49,
+    height:47,
+  },
+
+  buttomtext:{
+    fontSize:16,
+    color:'#CBA72F',
+    backgroundColor:'#000000',
+    marginTop:5,
+    paddingTop:5,
+    paddingLeft:10,
+    paddingBottom:3,
+    paddingRight:10,
+    borderRadius:8,
+  },
+
+  swipcontainer: {
+      height:200,
+      marginBottom:20,
+  },
+
+  wrapper: {
+  },
+
+  slide: {
+      flex: 1,
+      justifyContent: 'center',
+      backgroundColor: 'transparent'
+  },
+
+  slide1: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#9DD6EB'
+  },
+
+  slide2: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#97CAE5'
+  },
+
+  slide3: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#92BBD9'
+  },
+
+  text: {
+      color: '#fff',
+      fontSize: 30,
+      fontWeight: 'bold'
+  },
+
+  image: {
+      width:200,
+      height:200
+
+  },
+});
+
+export default knowledgepage;
