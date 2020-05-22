@@ -2,67 +2,26 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image,AsyncStorage  } from 'react-native';
-import { SplashScreen } from 'expo';
+import { View,Image,StyleSheet } from 'react-native';
 
 import JournalScreen from './screen/JournalScreen';
 import KnowledgeScreen from './screen/KnowledgeScreen';
 import UserScreen from "./screen/UserScreen";
+import StartScreen from "./screen/StartScreen";
 import CHAPTER01 from "./story/Story1";
 
-const Tab = createBottomTabNavigator();
+
+
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-const PERSISTENCE_KEY = "NAVIGATION_STATE";
 
-const JournalStack = ({}) => {
+
+
+
+const bottom = () => {
   return (
-      
-      <Stack.Navigator>
-        <Stack.Screen name="  "component={JournalScreen}  
-        options={{
-          headerStyle:{
-            height:0,
-          }
-        }} />
-        <Stack.Screen name="CHAPTER 01"component={CHAPTER01} /> 
-      </Stack.Navigator>
-  );
-}
-
-const App = () => {
-  const [isLoadingComplete, setLoadingComplete] = React.useState(false);
-  const [initialNavigationState, setInitialNavigationState] = React.useState();
-  
-  React.useEffect(() => {
-    async function loadResourcesAndDataAsync() {
-      try {
-        SplashScreen.preventAutoHide();
-        const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
-        const state = JSON.parse(savedStateString);
-        setInitialNavigationState(state);
-      } catch (e) {
-        // We might want to provide this error information to an error reporting service
-        console.warn(e);
-      } finally {
-        setLoadingComplete(true);
-        SplashScreen.hide();
-      }
-    }
-    loadResourcesAndDataAsync();
-  }, []);
-
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
-      
-    <NavigationContainer 
-        initialState={initialNavigationState}
-        onStateChange={(state)=>
-          AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
-        }
-      >
+    <NavigationContainer >
       <Tab.Navigator 
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -104,7 +63,7 @@ const App = () => {
         }}
         
       >
-        <Tab.Screen name="Journal" component={JournalStack} />
+        <Tab.Screen name="Journal" component={JournalScreen} />
         <Tab.Screen name="Knowledge" component={KnowledgeScreen} />
         <Tab.Screen name="User" component={UserScreen} />
       </Tab.Navigator>
@@ -112,6 +71,5 @@ const App = () => {
   );
 }
 
-}
 
-export default App;
+export default bottom;

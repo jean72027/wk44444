@@ -1,0 +1,10 @@
+{
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 4528,
+  "expoServerNgrokUrl": "https://se-s6w.anonymous.test.exp.direct",
+  "packagerNgrokUrl": "https://packager.se-s6w.anonymous.test.exp.direct",
+  "ngrokPid": 16800,
+  "webpackServerPort": null,
+  "devToolsPort": 19002
+}

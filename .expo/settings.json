@@ -1,0 +1,8 @@
+{
+  "urlRandomness": "se-s6w",
+  "hostType": "tunnel",
+  "lanType": "ip",
+  "dev": true,
+  "minify": false,
+  "https": false
+}
